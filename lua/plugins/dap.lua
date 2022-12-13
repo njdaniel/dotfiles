@@ -1,10 +1,10 @@
 -- import nvim_dap plugin safely
-local dap_status, dap = pcall(require, "nvim-dap")
-if not dap_status then
-	return
-end
-
-dap.setup()
+-- local dap_status, dap = pcall(require, "nvim-dap")
+-- if not dap_status then
+-- 	return
+-- end
+--
+-- dap.setup()
 
 --keymaps
 

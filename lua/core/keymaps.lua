@@ -43,4 +43,8 @@ keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
 -- Debug Dap
+keymap.set("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>")
+keymap.set("n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>")
+keymap.set("n", "F11", "<cmd>lua require'dap'.step_into()<CR>")
+keymap.set("n", "F12", "<cmd>lua require'dap'.step_out()<CR>")
 keymap.set("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
