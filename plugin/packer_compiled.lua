@@ -231,6 +231,11 @@ _G.packer_plugins = {
     path = "/Users/nicholasdaniel/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister",
     url = "https://github.com/inkarkat/vim-ReplaceWithRegister"
   },
+  ["vim-go"] = {
+    loaded = true,
+    path = "/Users/nicholasdaniel/.local/share/nvim/site/pack/packer/start/vim-go",
+    url = "https://github.com/fatih/vim-go"
+  },
   ["vim-maximizer"] = {
     loaded = true,
     path = "/Users/nicholasdaniel/.local/share/nvim/site/pack/packer/start/vim-maximizer",
