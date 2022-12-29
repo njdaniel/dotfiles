@@ -103,7 +103,17 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use("leoluz/nvim-dap-go")
+
+	-- Golang
 	use("fatih/vim-go")
+	-- use("olexsmir/gopher.nvim")
+	use({
+		"olexsmir/gopher.nvim",
+		requires = { -- dependencies
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
