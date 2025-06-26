@@ -145,6 +145,14 @@ source <(docker completion zsh)
 # source /usr/local/bin/ansible-completion.zsh
 # source <(gcloud completion zsh)
 
+# Functions
+function ngrok_url() {
+  curl --silent http://127.0.0.1:4040/api/tunnels \
+    | jq -r '.tunnels[] | select(.proto=="https") | .public_url'
+}
+
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+alias python=python3

@@ -165,3 +165,4 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
 
 complete -C /usr/bin/terraform terraform
+alias python=python3
