@@ -1,0 +1,10 @@
+.secrets.env
+*.local
+*.secret
+
+# Local secrets
+.secrets.env
+*.secret
+*.local
+.env
+.env.*

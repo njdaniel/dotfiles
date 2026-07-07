@@ -1,0 +1,7 @@
+# Shared shell environment
+
+# User-local binaries
+export PATH="$HOME/.local/bin:$PATH"
+
+# Go
+export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
