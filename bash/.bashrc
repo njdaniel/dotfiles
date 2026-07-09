@@ -121,6 +121,9 @@ plugins=(
 
 source "$OSH"/oh-my-bash.sh
 
+# Shared shell environment
+[ -f "$HOME/.config/shell/env" ] && source "$HOME/.config/shell/env"
+
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
 
