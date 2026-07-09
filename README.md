@@ -67,7 +67,7 @@ First launch bootstraps lazy.nvim, installs plugins from `lazy-lock.json`, and M
 - `:checkhealth` — overall status (also `:checkhealth lazy`, `:checkhealth mason`, `:checkhealth vim.lsp`)
 - `:Lazy` — plugin state; `:Mason` — installed tools
 - `:ConformInfo` — formatters attached to the current buffer
-- `:LspInfo` — LSP clients attached to the current buffer
+- `:checkhealth vim.lsp` — LSP clients attached to the current buffer (`:LspInfo` was removed from nvim-lspconfig)
 
 ### Go development
 
