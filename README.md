@@ -20,7 +20,7 @@ shell/.config/shell/env     # Symlinks to ~/.config/shell/env
 1. **Clone this repository:**
 
    ```sh
-   git clone --recursive https://github.com/YOURUSERNAME/dotfiles.git ~/.dotfiles
+   git clone --recursive https://github.com/njdaniel/dotfiles.git ~/.dotfiles
    cd ~/.dotfiles
    ```
 
@@ -30,10 +30,29 @@ shell/.config/shell/env     # Symlinks to ~/.config/shell/env
    ./setup.sh
    ```
 
-   This will:
+   On Debian/Ubuntu/Pop!_OS, this will:
 
-   - Check for GNU Stow (and try to install it on Debian/Ubuntu)
-   - Symlink all available configs, including the shared shell environment, into the correct places
+   - Install base development packages: `git`, `curl`, `wget`, `ripgrep`, `fd-find`, `build-essential`, `make`, `pkg-config`, `nodejs`, `npm`, `python3`, `python3-pip`, `zsh`, `tmux`, `stow`, etc.
+   - Install Go from apt if `go` is missing.
+   - Install Rust with `rustup` if Rust is missing.
+   - Install Docker Engine, Buildx, and Docker Compose from Docker's apt repo if Docker is missing.
+   - Add the current user to the `docker` group.
+   - Symlink all available configs, including the shared shell environment, into the correct places using GNU Stow.
+
+   Optional sections can be skipped with environment variables:
+
+   ```sh
+   INSTALL_DOCKER=0 ./setup.sh
+   INSTALL_RUST=0 ./setup.sh
+   INSTALL_GO=0 ./setup.sh
+   STOW_DOTFILES=0 ./setup.sh
+   ```
+
+   After Docker install, log out and back in, or run:
+
+   ```sh
+   newgrp docker
+   ```
 
 3. **Install any required plugin managers manually:**
    - [Oh-My-Zsh](https://ohmyz.sh/) for Zsh (if you use it)
@@ -52,7 +71,7 @@ shell/.config/shell/env     # Symlinks to ~/.config/shell/env
   ln -sfn ~/.local/opt/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
   ```
 
-- System packages: `git`, `ripgrep`, `fd-find`, `make`, `gcc` (for treesitter/native builds), `nodejs`/`npm` (for several LSP servers), `go` (for Go tooling).
+- System packages are installed by `./setup.sh` on Debian/Ubuntu/Pop!_OS. Neovim needs `git`, `ripgrep`, `fd-find`, `make`, `gcc`/`build-essential`, `nodejs`/`npm`, and `go` for the current config and tooling.
 
 ### Install
 
