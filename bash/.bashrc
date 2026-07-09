@@ -121,15 +121,7 @@ plugins=(
 
 source "$OSH"/oh-my-bash.sh
 
-# Shared shell environment
-[ -f "$HOME/.config/shell/env" ] && source "$HOME/.config/shell/env"
-
 # User configuration
-# Load shared shell environment (once per session; avoids PATH duplication in subshells)
-if [ -z "${DOTFILES_SHELL_ENV_LOADED:-}" ] && [ -f "$HOME/.config/shell/env" ]; then
-  export DOTFILES_SHELL_ENV_LOADED=1
-  source "$HOME/.config/shell/env"
-fi
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

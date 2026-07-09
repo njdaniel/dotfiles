@@ -23,7 +23,6 @@ install_stow
 stow_targets=(
   shell
   wezterm
-  shell
   bash
   zsh
   nvim
