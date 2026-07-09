@@ -32,7 +32,7 @@ zsh/.zshrc                 # Symlinks to ~/.zshrc
    This will:
 
    - Check for GNU Stow (and try to install it on Debian/Ubuntu)
-   - Symlink all available configs into the correct places
+   - Symlink all available configs, including the shared shell environment, into the correct places
 
 3. **Install any required plugin managers manually:**
    - [Oh-My-Zsh](https://ohmyz.sh/) for Zsh (if you use it)
@@ -43,6 +43,7 @@ zsh/.zshrc                 # Symlinks to ~/.zshrc
 
 - Back up your existing configs before running this setup if you have important changes.
 - If you add or remove dotfile folders, update the `stow_targets` array in `setup.sh`.
+- Shared shell environment variables live in `shell/.config/shell/env` and are loaded by both Bash and Zsh.
 - For submodules (like TPM), run:
   ```sh
   git submodule update --init --recursive

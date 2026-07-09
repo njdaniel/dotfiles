@@ -90,6 +90,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# Load shared shell environment
+[ -f "$HOME/.config/shell/env" ] && source "$HOME/.config/shell/env"
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

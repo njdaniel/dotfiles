@@ -117,6 +117,9 @@ plugins=(
 source "$OSH"/oh-my-bash.sh
 
 # User configuration
+# Load shared shell environment
+[ -f "$HOME/.config/shell/env" ] && source "$HOME/.config/shell/env"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

@@ -22,6 +22,7 @@ install_stow
 # List your managed directories here
 stow_targets=(
   wezterm
+  shell
   bash
   zsh
   nvim
