@@ -40,6 +40,9 @@ return {
 				"gopls",
 				"yamlls",
 			},
+			-- Automatically vim.lsp.enable() each installed server, using the
+			-- vim.lsp.config() overrides defined in lspconfig.lua.
+			automatic_enable = true,
 		})
 
 		mason_tool_installer.setup({
