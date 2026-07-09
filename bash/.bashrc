@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Load shared shell environment (only once per session).
-if [ -f "$HOME/.config/shell/env" ] && [ -z "${DOTFILES_SHELL_ENV_LOADED:-}" ]; then
+if [ -z "${DOTFILES_SHELL_ENV_LOADED:-}" ] && [ -f "$HOME/.config/shell/env" ]; then
   export DOTFILES_SHELL_ENV_LOADED=1
   source "$HOME/.config/shell/env"
 fi
@@ -120,9 +120,6 @@ plugins=(
 #  fi
 
 source "$OSH"/oh-my-bash.sh
-
-# Shared shell environment
-[ -f "$HOME/.config/shell/env" ] && source "$HOME/.config/shell/env"
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"

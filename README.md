@@ -33,7 +33,7 @@ shell/.config/shell/env     # Symlinks to ~/.config/shell/env
    This will:
 
    - Check for GNU Stow (and try to install it on Debian/Ubuntu)
-   - Symlink all available configs into the correct places
+   - Symlink all available configs, including the shared shell environment, into the correct places
 
 3. **Install any required plugin managers manually:**
    - [Oh-My-Zsh](https://ohmyz.sh/) for Zsh (if you use it)
