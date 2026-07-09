@@ -4,9 +4,11 @@ case $- in
     *) return;;
 esac
 
-# Load shared shell environment.
-[ -f "$HOME/.config/shell/env" ] && source "$HOME/.config/shell/env"
-
+# Load shared shell environment (only once per session).
+if [ -f "$HOME/.config/shell/env" ] && [ -z "${DOTFILES_SHELL_ENV_LOADED:-}" ]; then
+  export DOTFILES_SHELL_ENV_LOADED=1
+  source "$HOME/.config/shell/env"
+fi
 # Path to your oh-my-bash installation.
 export OSH='/home/loki/.oh-my-bash'
 
