@@ -19,11 +19,25 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
-				local opts = { buffer = ev.buf, silent = true }
-				-- Keymaps for LSP
-				opts.desc = "Show LSP references"
-				keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
-				-- Add other keymaps here...
+				local function map(keys, func, desc)
+					keymap.set("n", keys, func, { buffer = ev.buf, silent = true, desc = desc })
+				end
+
+				-- LSP navigation and actions
+				map("gR", "<cmd>Telescope lsp_references<CR>", "Show LSP references")
+				map("gd", vim.lsp.buf.definition, "Go to definition")
+				map("gD", vim.lsp.buf.declaration, "Go to declaration")
+				map("gi", vim.lsp.buf.implementation, "Go to implementation")
+				map("gt", vim.lsp.buf.type_definition, "Go to type definition")
+				map("K", vim.lsp.buf.hover, "Show hover documentation")
+				map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+				map("<leader>ca", vim.lsp.buf.code_action, "Code action")
+
+				-- Diagnostics workflow
+				map("<leader>d", vim.diagnostic.open_float, "Show line diagnostics")
+				map("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
+				map("]d", vim.diagnostic.goto_next, "Go to next diagnostic")
+				map("<leader>q", vim.diagnostic.setloclist, "Add diagnostics to location list")
 			end,
 		})
 
