@@ -12,6 +12,7 @@ Example:
 ```
 nvim/.config/nvim/         # Symlinks to ~/.config/nvim/
 zsh/.zshrc                 # Symlinks to ~/.zshrc
+shell/.config/shell/env     # Symlinks to ~/.config/shell/env
 ```
 
 ## Setup
@@ -43,6 +44,7 @@ zsh/.zshrc                 # Symlinks to ~/.zshrc
 
 - Back up your existing configs before running this setup if you have important changes.
 - If you add or remove dotfile folders, update the `stow_targets` array in `setup.sh`.
+- Shared shell environment exports live in `shell/.config/shell/env` and are loaded by Bash and Zsh.
 - For submodules (like TPM), run:
   ```sh
   git submodule update --init --recursive

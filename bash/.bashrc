@@ -4,6 +4,9 @@ case $- in
     *) return;;
 esac
 
+# Load shared shell environment.
+[ -f "$HOME/.config/shell/env" ] && source "$HOME/.config/shell/env"
+
 # Path to your oh-my-bash installation.
 export OSH='/home/loki/.oh-my-bash'
 
