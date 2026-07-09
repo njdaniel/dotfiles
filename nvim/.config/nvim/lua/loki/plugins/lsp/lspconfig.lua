@@ -148,9 +148,14 @@ return {
 				},
 			},
 			on_attach = function(client, bufnr)
-				-- Auto-organize imports before saving the file
+				-- Auto-organize imports before saving the file.
+				-- The augroup is shared across Go buffers, so it must not be
+				-- cleared globally here; only this buffer's autocmds are reset
+				-- to avoid duplicates when gopls re-attaches.
+				local group = vim.api.nvim_create_augroup("GoOrganizeImports", { clear = false })
+				vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
 				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = vim.api.nvim_create_augroup("GoOrganizeImports", { clear = true }),
+					group = group,
 					buffer = bufnr,
 					callback = function()
 						vim.lsp.buf.code_action({
