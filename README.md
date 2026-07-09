@@ -44,7 +44,7 @@ shell/.config/shell/env     # Symlinks to ~/.config/shell/env
 
 - Back up your existing configs before running this setup if you have important changes.
 - If you add or remove dotfile folders, update the `stow_targets` array in `setup.sh`.
-- Shared shell environment exports live in `shell/.config/shell/env` and are loaded by Bash and Zsh.
+- Shared shell environment exports live in `shell/.config/shell/env` and are loaded in interactive Bash/Zsh sessions (via `bash/.bashrc` and `zsh/.zshrc`).
 - For submodules (like TPM), run:
   ```sh
   git submodule update --init --recursive
