@@ -27,7 +27,6 @@ stow_targets=(
   zsh
   nvim
   tmux
-  git
 )
 
 cd "$(dirname "$0")"
