@@ -6,7 +6,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
+		{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 	},
 	config = function()
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -32,18 +32,28 @@ return {
 
 				-- Diagnostics workflow
 				map("<leader>d", vim.diagnostic.open_float, "Show line diagnostics")
-				map("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
-				map("]d", vim.diagnostic.goto_next, "Go to next diagnostic")
+				map("[d", function()
+					vim.diagnostic.jump({ count = -1, float = true })
+				end, "Go to previous diagnostic")
+				map("]d", function()
+					vim.diagnostic.jump({ count = 1, float = true })
+				end, "Go to next diagnostic")
 				map("<leader>q", vim.diagnostic.setloclist, "Add diagnostics to location list")
 			end,
 		})
 
 		-- Customize Diagnostic symbols in the sign column (gutter)
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+		local severity = vim.diagnostic.severity
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[severity.ERROR] = " ",
+					[severity.WARN] = " ",
+					[severity.HINT] = "󰠠 ",
+					[severity.INFO] = " ",
+				},
+			},
+		})
 
 		-- Apply cmp-nvim-lsp capabilities to every server by default.
 		-- Per-server overrides below are merged on top of this base config.
