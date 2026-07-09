@@ -24,7 +24,7 @@ return {
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
 			python = { "pylint" },
-			golang = { "golangcilint" },
+			go = { "golangcilint" },
 			-- yaml = { "cfn_lint" },
 		}
 
